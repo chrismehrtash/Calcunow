@@ -9,7 +9,9 @@ int main() {
 	//x + 43
 	string input = "";
 	vector<string> calcInputs;
-	while (cin) {
+	while (true) {
+		auto c = cin.peek();
+		if (c == EOF) break;
 		getline(cin, input);
 
 		istringstream iss(input);
@@ -20,7 +22,7 @@ int main() {
 			calcInputs.push_back(word);
 		}
 
-		if( calcInputs.at(1) == "=") set_value(calcInputs.at(0)[0], stoi(calcInputs.at(2)));
+		if( calcInputs.at(0) == "LET") set_value(calcInputs.at(0)[1],stoi(calcInputs.at(3)));
 
 		cout << math(calcInputs);
 
